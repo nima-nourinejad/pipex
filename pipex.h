@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/08 17:53:03 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 17:54:30 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ char	*ft_pos0_maker(char *str);
 char	*ft_pos1_maker(char *str);
 t_io	ft_io(char *i, char *o);
 char	*ft_scape(char *input);
-int		ft_f_path(char *str, char **envp, int i);
-int		ft_x_path(char *str, char **envp, int i);
+int		ft_f_path(char *str, char **envp);
+int		ft_x_path(char *str, char **envp);
 int		ft_f_root(char *str);
 int		ft_x_root(char *str);
 char	*ft_add_maker(char *str, char **envp);
@@ -79,5 +79,11 @@ char	**ft_free_split(char ***m, int j);
 int		ft_triger_maker_sp(int triger, char c, char before_c, char divider);
 t_ior	*ft_free_exit_ior(t_ior ior, int ex);
 void	ft_close_fd(int in, int out, int fd_null);
+void	ft_free_doule_pointer(char **m);
+void	ft_free_ior(t_ior ior);
+void	ft_free_rule_fd(t_rule *r, int fd);
+int		ft_check_f(char *join, char **path);
+int		ft_check_x(char *join, char **path);
+char	*ft_check_add(char *join, char **path);
 
 #endif // PIPEX_H

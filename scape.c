@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:56:40 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/08 17:57:34 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 16:43:44 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ static t_scape	ft_remover(t_scape tool)
 	dif = (tool.index - tool.without);
 	new = malloc(len * sizeof(char));
 	if (!new)
-	{
-		tool.without = 0;
-		tool.index = 0;
-	}
+		exit (-6);
 	else
 	{
-		new[len] = '\0';
+		new[len - 1] = '\0';
 		ft_memcpy(new, tool.without, dif);
 		ft_memcpy((new + dif),
 			(tool.without + dif + 1),
@@ -60,11 +57,7 @@ t_scape	ft_remover_one(t_scape tool)
 		tool = ft_remover(tool);
 		free(temp);
 		if (!tool.without)
-		{
-			tool.without = 0;
-			tool.index = 0;
-			return (tool);
-		}
+			exit (-6);
 	}
 	else
 	{
@@ -78,7 +71,6 @@ t_scape	ft_remover_one(t_scape tool)
 char	*ft_scape(char *input)
 {
 	t_scape	tool;
-	char	*temp;
 	char	*str;
 
 	str = ft_strdup(input);
@@ -88,10 +80,9 @@ char	*ft_scape(char *input)
 	tool.index = tool.without;
 	while (ft_strchr(tool.index, '\\'))
 	{
-		temp = tool.without;
 		tool = ft_remover_one(tool);
 		if (!tool.without)
-			return (0);
+			exit (-6);
 	}
 	return (tool.without);
 }

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:48:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/08 17:53:53 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:06:30 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,10 @@ int	main(int argc, char **argv, char **envp)
 	{
 		close(p[0]);
 		ft_exec_rule2((ior.io).i, p[1], ior, envp);
-		ft_close_fd((ior.io).i, (ior.io).o, (ior.io).fd_null);
 	}
 	else
 	{
 		close(p[1]);
-		status = ft_exec_rule3(p[0], (ior.io).o, ior, envp);
-		close(p[0]);
-		ft_free_exit_ior(ior, status);
+		ft_exec_rule3(p[0], (ior.io).o, ior, envp);
 	}
 }

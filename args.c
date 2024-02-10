@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 08:51:44 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/01 13:07:07 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 16:28:48 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_check_sh(char *str, int pos)
 	else
 		temp = ft_pos1_maker(str);
 	if (!temp)
-		return (0);
+		exit (-6);
 	i = 0;
 	while (temp[i])
 		i++;
@@ -31,6 +31,7 @@ static int	ft_check_sh(char *str, int pos)
 		free(temp);
 		return (1);
 	}
+	free(temp);
 	return (0);
 }
 
@@ -43,6 +44,8 @@ char	**ft_args0_maker(char *str)
 	if (ft_check_sh(str, 0))
 		return (ft_args2_maker(str));
 	split = ft_split_pipex(str, ' ');
+	if (!split)
+		exit (-6);
 	i = 0;
 	while (split[i])
 	{
@@ -51,6 +54,8 @@ char	**ft_args0_maker(char *str)
 			split[i] = ft_pos0_maker(split[i]);
 		else
 			split[i] = ft_pos1_maker(split[i]);
+		if (!split[i])
+			exit (-6);
 		free (temp);
 		i++;
 	}
@@ -66,11 +71,15 @@ char	**ft_args1_maker(char *str)
 	if (ft_check_sh(str, 1))
 		return (ft_args3_maker(str));
 	split = ft_split_pipex(str, ' ');
+	if (!split)
+		exit (-6);
 	i = 0;
 	while (split[i])
 	{
 		temp = split[i];
 		split[i] = ft_pos1_maker(split[i]);
+		if (!split[i])
+			exit (-6);
 		free (temp);
 		i++;
 	}
@@ -84,10 +93,10 @@ char	**ft_args2_maker(char *str)
 
 	pos = ft_pos0_maker(str);
 	if (!pos)
-		return (0);
+		exit (-6);
 	args = malloc(2 * sizeof(char *));
 	if (!args)
-		return (0);
+		exit (-6);
 	args[1] = 0;
 	args[0] = pos;
 	return (args);
@@ -100,10 +109,10 @@ char	**ft_args3_maker(char *str)
 
 	pos = ft_pos1_maker(str);
 	if (!pos)
-		return (0);
+		exit (-6);
 	args = malloc(2 * sizeof(char *));
 	if (!args)
-		return (0);
+		exit (-6);
 	args[1] = 0;
 	args[0] = pos;
 	return (args);

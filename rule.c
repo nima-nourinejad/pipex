@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:06:22 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/01 12:46:14 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 17:07:19 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,22 @@ t_rule	*ft_rule0_maker(char *str, char **envp)
 
 	n = malloc(sizeof(t_rule));
 	if (!n)
-		return (0);
+		exit (-6);
 	args = ft_args0_maker(str);
 	if (!args)
-	{
-		free(n);
-		return (0);
-	}
+		exit (-6);
 	(*n).args = args;
 	(*n).cmd = args[0];
-	(*n).f = ft_f_path(args[0], envp, 0);
-	(*n).x = ft_x_path(args[0], envp, 0);
-	(*n).add = ft_add_maker(args[0], envp);
+	(*n).f = ft_f_path(args[0], envp);
+	(*n).x = ft_x_path(args[0], envp);
+	if ((*n).x)
+	{
+		(*n).add = ft_add_maker(args[0], envp);
+		if (!((*n).add))
+			exit (-6);
+	}
+	else
+		(*n).add = 0;
 	(*n).staus = 0;
 	return (n);
 }
@@ -42,18 +46,22 @@ t_rule	*ft_rule1_maker(char *str, char **envp)
 
 	n = malloc(sizeof(t_rule));
 	if (!n)
-		return (0);
+		exit (-6);
 	args = ft_args1_maker(str);
 	if (!args)
-	{
-		free(n);
-		return (0);
-	}
+		exit (-6);
 	(*n).args = args;
 	(*n).cmd = args[0];
-	(*n).f = ft_f_path(args[0], envp, 0);
-	(*n).x = ft_x_path(args[0], envp, 0);
-	(*n).add = ft_add_maker(args[0], envp);
+	(*n).f = ft_f_path(args[0], envp);
+	(*n).x = ft_x_path(args[0], envp);
+	if ((*n).x)
+	{
+		(*n).add = ft_add_maker(args[0], envp);
+		if (!((*n).add))
+			exit (-6);
+	}
+	else
+		(*n).add = 0;
 	(*n).staus = 0;
 	return (n);
 }
@@ -65,19 +73,20 @@ t_rule	*ft_rule2_maker(char *str, char **envp)
 
 	n = malloc(sizeof(t_rule));
 	if (!n)
-		return (0);
+		exit (-6);
 	args = ft_args2_maker(str);
 	if (!args)
-	{
-		free(n);
-		return (0);
-	}
+		exit (-6);
 	(*n).args = args;
 	(*n).cmd = args[0];
 	(*n).f = ft_f_root(args[0]);
 	(*n).x = ft_x_root(args[0]);
 	if ((*n).x)
-		(*n).add = args[0];
+	{
+		(*n).add = ft_strdup(args[0]);
+		if (!((*n).add))
+			exit (-6);
+	}
 	else
 		(*n).add = 0;
 	(*n).staus = 0;
@@ -92,19 +101,20 @@ t_rule	*ft_rule3_maker(char *str, char **envp)
 
 	n = malloc(sizeof(t_rule));
 	if (!n)
-		return (0);
+		exit (-6);
 	args = ft_args3_maker(str);
 	if (!args)
-	{
-		free(n);
-		return (0);
-	}
+		exit (-6);
 	(*n).args = args;
 	(*n).cmd = args[0];
 	(*n).f = ft_f_root(args[0]);
 	(*n).x = ft_x_root(args[0]);
 	if ((*n).x)
-		(*n).add = args[0];
+	{
+		(*n).add = ft_strdup(args[0]);
+		if (!((*n).add))
+			exit (-6);
+	}
 	else
 		(*n).add = 0;
 	(*n).staus = 0;
@@ -127,6 +137,8 @@ void	ft_rule_remover(t_rule *rule)
 			i++;
 		}
 		free(args);
+		if ((*rule).add)
+			free((*rule).add);
 		free(rule);
 	}
 }

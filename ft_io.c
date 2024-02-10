@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 10:38:50 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/08 17:51:12 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 16:31:43 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,13 @@ static char	*ft_i_maker(char *i)
 	char	*i1;
 
 	i0 = ft_pos0_maker(i);
+	if (!i0)
+		exit (-6);
 	if (ft_check_read(i0))
 		return (i0);
 	i1 = ft_pos1_maker(i);
+	if (!i1)
+		exit (-6);
 	if (ft_check_read(i1))
 	{
 		free(i0);
@@ -47,7 +51,7 @@ t_io	ft_io(char *i, char *o)
 
 	r.fd_null = open("/dev/null", O_RDONLY);
 	if (r.fd_null == -1)
-		exit (-6);
+		exit (-5);
 	i = ft_i_maker(i);
 	r.i = open(i, O_RDONLY);
 	if (r.i == -1)

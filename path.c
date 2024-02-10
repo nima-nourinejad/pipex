@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:01:52 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/08 17:11:06 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 17:55:50 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ static char	**ft_all_path(char **envp)
 		i++;
 	}
 	add = ft_split(trim, ':');
-	free(trim);
+	if (!add)
+		exit (-6);
+	if (trim)
+		free(trim);
 	return (add);
 }
 
-int	ft_f_path(char *str, char **envp, int i)
+int	ft_f_path(char *str, char **envp)
 {
 	char	**path;
 	char	*join;
-	char	*add;
 
 	if (!str)
 		return (0);
@@ -46,27 +48,15 @@ int	ft_f_path(char *str, char **envp, int i)
 		return (1);
 	path = ft_all_path(envp);
 	join = ft_strjoin("/", str);
-	while (path[i])
-	{
-		add = ft_strjoin(path[i], join);
-		if (access(add, F_OK) == 0)
-		{
-			free (add);
-			free(join);
-			return (1);
-		}
-		free(add);
-		i++;
-	}
-	free(join);
-	return (0);
+	if (!join)
+		exit (-6);
+	return (ft_check_f(join, path));
 }
 
-int	ft_x_path(char *str, char **envp, int i)
+int	ft_x_path(char *str, char **envp)
 {
 	char	**path;
 	char	*join;
-	char	*add;
 
 	if (!str)
 		return (0);
@@ -74,28 +64,15 @@ int	ft_x_path(char *str, char **envp, int i)
 		return (1);
 	path = ft_all_path(envp);
 	join = ft_strjoin("/", str);
-	while (path[i])
-	{
-		add = ft_strjoin(path[i], join);
-		if (access(add, X_OK) == 0)
-		{
-			free(join);
-			free(add);
-			return (1);
-		}
-		free(add);
-		i++;
-	}
-	free(join);
-	return (0);
+	if (!join)
+		exit (-6);
+	return (ft_check_x(join, path));
 }
 
 char	*ft_add_maker(char *str, char **envp)
 {
-	int		i;
 	char	**path;
 	char	*join;
-	char	*add;
 
 	if (!str)
 		return (0);
@@ -103,18 +80,7 @@ char	*ft_add_maker(char *str, char **envp)
 		return (0);
 	path = ft_all_path(envp);
 	join = ft_strjoin("/", str);
-	i = 0;
-	while (path[i])
-	{
-		add = ft_strjoin(path[i], join);
-		if (access(add, X_OK) == 0)
-		{
-			free(join);
-			return (add);
-		}
-		free(add);
-		i++;
-	}
-	free(join);
-	return (0);
+	if (!join)
+		exit (-6);
+	return (ft_check_add(join, path));
 }
