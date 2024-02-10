@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 11:20:13 by nima              #+#    #+#             */
-/*   Updated: 2023/11/07 18:10:26 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:41:23 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ static int	ft_len_fd(int n)
 void	ft_putnbr_fd(int n, int fd)
 {
 	int		len;
-	int		i;
 
-	i = 0;
 	if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);
 	else if (n == 2147483647)

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 17:54:30 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:39:25 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_rule
 	char	**args;
 	int		f;
 	int		x;
-	int		staus;
 }	t_rule;
 
 typedef struct s_io
@@ -67,8 +66,8 @@ char	**ft_args2_maker(char *str);
 char	**ft_args3_maker(char *str);
 t_rule	*ft_rule0_maker(char *str, char **envp);
 t_rule	*ft_rule1_maker(char *str, char **envp);
-t_rule	*ft_rule2_maker(char *str, char **envp);
-t_rule	*ft_rule3_maker(char *str, char **envp);
+t_rule	*ft_rule2_maker(char *str);
+t_rule	*ft_rule3_maker(char *str);
 void	ft_rule_remover(t_rule *rule);
 int		ft_find_max4(int x1, int x2, int x3, int x4);
 t_rule	*ft_final_rule(char *str, char **envp);

@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:06:22 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 17:07:19 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:39:13 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_rule	*ft_rule0_maker(char *str, char **envp)
 	}
 	else
 		(*n).add = 0;
-	(*n).staus = 0;
 	return (n);
 }
 
@@ -62,11 +61,10 @@ t_rule	*ft_rule1_maker(char *str, char **envp)
 	}
 	else
 		(*n).add = 0;
-	(*n).staus = 0;
 	return (n);
 }
 
-t_rule	*ft_rule2_maker(char *str, char **envp)
+t_rule	*ft_rule2_maker(char *str)
 {
 	char	**args;
 	t_rule	*n;
@@ -89,12 +87,10 @@ t_rule	*ft_rule2_maker(char *str, char **envp)
 	}
 	else
 		(*n).add = 0;
-	(*n).staus = 0;
-	envp = 0;
 	return (n);
 }
 
-t_rule	*ft_rule3_maker(char *str, char **envp)
+t_rule	*ft_rule3_maker(char *str)
 {
 	char	**args;
 	t_rule	*n;
@@ -117,8 +113,6 @@ t_rule	*ft_rule3_maker(char *str, char **envp)
 	}
 	else
 		(*n).add = 0;
-	(*n).staus = 0;
-	envp = 0;
 	return (n);
 }
 

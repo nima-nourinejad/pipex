@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:54:02 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 11:17:49 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:40:28 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	ft_find_best(t_rule *r1, t_rule *r2, t_rule *r3, t_rule *r4)
 {
-	return (ft_find_max4(((*r1).f + (*r1).x + (*r1).staus)
-			, ((*r2).f + (*r2).x + (*r2).staus)
-			, ((*r3).f + (*r3).x + (*r3).staus)
-			, ((*r4).f + (*r4).x + (*r4).staus)));
+	return (ft_find_max4(((*r1).f + (*r1).x)
+			, ((*r2).f + (*r2).x)
+			, ((*r3).f + (*r3).x)
+			, ((*r4).f + (*r4).x)));
 }
 
 static void	ft_rule_remover3(t_rule *r1, t_rule *r2, t_rule *r3)
@@ -63,7 +63,7 @@ t_rule	*ft_final_rule(char *str, char **envp)
 
 	r0 = ft_rule0_maker(str, envp);
 	r1 = ft_rule1_maker(str, envp);
-	r2 = ft_rule2_maker(str, envp);
-	r3 = ft_rule3_maker(str, envp);
+	r2 = ft_rule2_maker(str);
+	r3 = ft_rule3_maker(str);
 	return (ft_best_rule(r0, r1, r2, r3));
 }
