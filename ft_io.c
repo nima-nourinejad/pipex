@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 10:38:50 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 17:24:43 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/11 18:08:09 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_io	ft_io(char *i, char *o)
 {
 	t_io	r;
 
-	r.fd_null = open("null", O_WRONLY | O_CREAT, 0600);
+	r.fd_null = open("null", O_RDONLY | O_CREAT, 0600);
 	if (r.fd_null == -1)
 		exit (-5);
 	i = ft_i_maker(i);
