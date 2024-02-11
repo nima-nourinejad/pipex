@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:48:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 18:32:06 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/11 11:47:17 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,11 @@ static t_ior	ft_arg_handling(int argc, char **argv, char **envp)
 
 int	main(int argc, char **argv, char **envp)
 {
-	int		status;
 	int		p[2];
 	pid_t	pid;
 	t_ior	ior;
 
 	ior = ft_arg_handling(argc, argv, envp);
-	status = 0;
 	if (pipe(p) == -1)
 		ft_free_exit_ior(ior, -2);
 	pid = fork();
