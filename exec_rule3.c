@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:29:43 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 15:37:16 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/11 17:27:58 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_exec_rule3(int i, int o, t_ior ior, char **envp)
 	else
 	{
 		close(i);
-		ft_free_ior(ior);
+		ft_free_ior_unlink(ior);
 		waitpid(pid, &status, 0);
 	}
 	return ((status >> 8) & 255);

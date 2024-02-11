@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_io.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 10:38:50 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 16:31:43 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/11 17:24:43 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_io	ft_io(char *i, char *o)
 {
 	t_io	r;
 
-	r.fd_null = open("/dev/null", O_RDONLY);
+	r.fd_null = open("null", O_WRONLY | O_CREAT, 0600);
 	if (r.fd_null == -1)
 		exit (-5);
 	i = ft_i_maker(i);
