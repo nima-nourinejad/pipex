@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_rule3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:29:43 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 18:09:41 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:37:16 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int	ft_exec_rule3(int i, int o, t_ior ior, char **envp)
 		ft_free_ior(ior);
 		waitpid(pid, &status, 0);
 	}
-	exit ((status >> 8) & 255);
+	return ((status >> 8) & 255);
 }

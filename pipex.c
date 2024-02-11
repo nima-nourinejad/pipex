@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:48:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 11:47:17 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/11 15:39:33 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ int	main(int argc, char **argv, char **envp)
 	int		p[2];
 	pid_t	pid;
 	t_ior	ior;
+	int		status;
+	int		wait;
 
+	status = 0;
 	ior = ft_arg_handling(argc, argv, envp);
 	if (pipe(p) == -1)
 		ft_free_exit_ior(ior, -2);
@@ -90,6 +93,8 @@ int	main(int argc, char **argv, char **envp)
 	else
 	{
 		close(p[1]);
-		ft_exec_rule3(p[0], (ior.io).o, ior, envp);
+		status = ft_exec_rule3(p[0], (ior.io).o, ior, envp);
+		waitpid(pid, &wait, 0);
 	}
+	exit (status);
 }
