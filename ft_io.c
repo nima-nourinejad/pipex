@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_io.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 10:38:50 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 18:08:09 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/12 11:22:55 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ static char	*ft_i_maker(char *i)
 		return (i0);
 	i1 = ft_pos1_maker(i);
 	if (!i1)
+	{
+		free(i0);
 		exit (-6);
+	}
 	if (ft_check_read(i1))
 	{
 		free(i0);
