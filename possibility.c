@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:59:38 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 16:37:19 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:11:15 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_pos0_maker(char *str)
 	else
 		pos0 = ft_strdup(str);
 	if (!pos0)
-		exit (-6);
+		return (0);
 	return (pos0);
 }
 
@@ -41,11 +41,11 @@ char	*ft_pos1_maker(char *str)
 		else
 			trim = ft_strdup(str);
 		if (!trim)
-			exit (-6);
+			return (0);
 		pos1 = ft_scape(trim);
 		free(trim);
 		if (!pos1)
-			exit (-6);
+			return (0);
 	}
 	return (pos1);
 }

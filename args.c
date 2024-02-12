@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 08:51:44 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 16:28:48 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:07:10 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_check_sh(char *str, int pos)
 	else
 		temp = ft_pos1_maker(str);
 	if (!temp)
-		exit (-6);
+		return (0);
 	i = 0;
 	while (temp[i])
 		i++;
@@ -45,7 +45,7 @@ char	**ft_args0_maker(char *str)
 		return (ft_args2_maker(str));
 	split = ft_split_pipex(str, ' ');
 	if (!split)
-		exit (-6);
+		return (0);
 	i = 0;
 	while (split[i])
 	{
@@ -55,7 +55,7 @@ char	**ft_args0_maker(char *str)
 		else
 			split[i] = ft_pos1_maker(split[i]);
 		if (!split[i])
-			exit (-6);
+			return (0);
 		free (temp);
 		i++;
 	}
@@ -72,14 +72,14 @@ char	**ft_args1_maker(char *str)
 		return (ft_args3_maker(str));
 	split = ft_split_pipex(str, ' ');
 	if (!split)
-		exit (-6);
+		return (0);
 	i = 0;
 	while (split[i])
 	{
 		temp = split[i];
 		split[i] = ft_pos1_maker(split[i]);
 		if (!split[i])
-			exit (-6);
+			return (0);
 		free (temp);
 		i++;
 	}
@@ -93,10 +93,10 @@ char	**ft_args2_maker(char *str)
 
 	pos = ft_pos0_maker(str);
 	if (!pos)
-		exit (-6);
+		return (0);
 	args = malloc(2 * sizeof(char *));
 	if (!args)
-		exit (-6);
+		return (0);
 	args[1] = 0;
 	args[0] = pos;
 	return (args);
@@ -109,10 +109,10 @@ char	**ft_args3_maker(char *str)
 
 	pos = ft_pos1_maker(str);
 	if (!pos)
-		exit (-6);
+		return (0);
 	args = malloc(2 * sizeof(char *));
 	if (!args)
-		exit (-6);
+		return (0);
 	args[1] = 0;
 	args[0] = pos;
 	return (args);

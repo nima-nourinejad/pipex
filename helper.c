@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:08:29 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 13:40:33 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:16:54 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_ior	*ft_free_exit_ior(t_ior ior, int ex)
 		ft_rule_remover(ior.r1);
 	if (ior.r2)
 		ft_rule_remover(ior.r2);
+	unlink("null");
 	exit (ex);
 }
 

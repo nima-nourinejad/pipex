@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 16:57:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 17:54:00 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:08:17 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_check_f(char *join, char **path)
 	{
 		add = ft_strjoin(path[i], join);
 		if (!add)
-			exit (-6);
+			return (0);
 		if (access(add, F_OK) == 0)
 		{
 			ft_free_doule_and_single_pointer(path, add, join);
@@ -46,7 +46,7 @@ int	ft_check_x(char *join, char **path)
 	{
 		add = ft_strjoin(path[i], join);
 		if (!add)
-			exit (-6);
+			return (0);
 		if (access(add, X_OK) == 0)
 		{
 			ft_free_doule_and_single_pointer(path, add, join);
@@ -70,7 +70,7 @@ char	*ft_check_add(char *join, char **path)
 	{
 		add = ft_strjoin(path[i], join);
 		if (!add)
-			exit (-6);
+			return (0);
 		if (access(add, X_OK) == 0)
 		{
 			ft_free_doule_and_single_pointer(path, 0, join);
