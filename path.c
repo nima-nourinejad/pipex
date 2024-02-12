@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:01:52 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/12 11:10:07 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:26:31 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	ft_f_path(char *str, char **envp)
 	if (str[0] == '\0')
 		return (1);
 	path = ft_all_path(envp);
+	if (!path)
+		return (0);
 	join = ft_strjoin("/", str);
 	if (!join)
 		return (0);
@@ -63,6 +65,8 @@ int	ft_x_path(char *str, char **envp)
 	if (str[0] == '\0')
 		return (1);
 	path = ft_all_path(envp);
+	if (!path)
+		return (0);
 	join = ft_strjoin("/", str);
 	if (!join)
 		return (0);
@@ -79,6 +83,8 @@ char	*ft_add_maker(char *str, char **envp)
 	if (str[0] == '\0')
 		return (0);
 	path = ft_all_path(envp);
+	if (!path)
+		return (0);
 	join = ft_strjoin("/", str);
 	if (!join)
 		return (0);
