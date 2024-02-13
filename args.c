@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 08:51:44 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/12 11:07:10 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:10:23 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ static int	ft_check_sh(char *str, int pos)
 	i = 0;
 	while (temp[i])
 		i++;
+	if (i < 3)
+	{
+		free(temp);
+		return (0);
+	}
 	if ((temp[i - 1] == 'h' && temp[i - 2] == 's' && temp[i - 3] == '.'))
 	{
 		free(temp);

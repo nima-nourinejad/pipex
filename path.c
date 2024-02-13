@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:01:52 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/12 11:26:31 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:05:37 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_x_path(char *str, char **envp)
 	if (!str)
 		return (0);
 	if (str[0] == '\0')
-		return (1);
+		return (0);
 	path = ft_all_path(envp);
 	if (!path)
 		return (0);

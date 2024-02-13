@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:06:22 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 13:26:49 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 17:08:36 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_rule	*ft_rule0_maker(char *str, char **envp)
 	if (!args)
 		return (0);
 	(*n).args = args;
-	(*n).cmd = args[0];
 	(*n).f = ft_f_path(args[0], envp);
 	(*n).x = ft_x_path(args[0], envp);
 	if ((*n).x)
@@ -32,9 +31,13 @@ t_rule	*ft_rule0_maker(char *str, char **envp)
 		(*n).add = ft_add_maker(args[0], envp);
 		if (!((*n).add))
 			return (0);
+		(*n).cmd = args[0];
 	}
 	else
+	{
 		(*n).add = 0;
+		(*n).cmd = str;
+	}
 	return (n);
 }
 
@@ -50,7 +53,6 @@ t_rule	*ft_rule1_maker(char *str, char **envp)
 	if (!args)
 		return (0);
 	(*n).args = args;
-	(*n).cmd = args[0];
 	(*n).f = ft_f_path(args[0], envp);
 	(*n).x = ft_x_path(args[0], envp);
 	if ((*n).x)
@@ -58,9 +60,13 @@ t_rule	*ft_rule1_maker(char *str, char **envp)
 		(*n).add = ft_add_maker(args[0], envp);
 		if (!((*n).add))
 			return (0);
+		(*n).cmd = args[0];
 	}
 	else
+	{
 		(*n).add = 0;
+		(*n).cmd = str;
+	}
 	return (n);
 }
 
@@ -76,7 +82,6 @@ t_rule	*ft_rule2_maker(char *str)
 	if (!args)
 		return (0);
 	(*n).args = args;
-	(*n).cmd = args[0];
 	(*n).f = ft_f_root(args[0]);
 	(*n).x = ft_x_root(args[0]);
 	if ((*n).x)
@@ -84,9 +89,13 @@ t_rule	*ft_rule2_maker(char *str)
 		(*n).add = ft_strdup(args[0]);
 		if (!((*n).add))
 			return (0);
+		(*n).cmd = args[0];
 	}
 	else
+	{
 		(*n).add = 0;
+		(*n).cmd = str;
+	}
 	return (n);
 }
 
@@ -102,7 +111,6 @@ t_rule	*ft_rule3_maker(char *str)
 	if (!args)
 		return (0);
 	(*n).args = args;
-	(*n).cmd = args[0];
 	(*n).f = ft_f_root(args[0]);
 	(*n).x = ft_x_root(args[0]);
 	if ((*n).x)
@@ -110,9 +118,13 @@ t_rule	*ft_rule3_maker(char *str)
 		(*n).add = ft_strdup(args[0]);
 		if (!((*n).add))
 			return (0);
+		(*n).cmd = args[0];
 	}
 	else
+	{
 		(*n).add = 0;
+		(*n).cmd = str;
+	}
 	return (n);
 }
 
