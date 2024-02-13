@@ -6,11 +6,21 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:29:43 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 19:09:17 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 12:08:11 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+static int	ft_status_handling(int status)
+{
+	if (WIFEXITED(status))
+		return (WEXITSTATUS (status));
+	else if (WIFSIGNALED(status))
+		return (WTERMSIG(status) + 128);
+	else
+		return (-8);
+}
 
 int	ft_exec_rule3(int i, int o, t_ior ior, char **envp)
 {
@@ -38,5 +48,5 @@ int	ft_exec_rule3(int i, int o, t_ior ior, char **envp)
 		ft_free_ior_unlink(ior);
 		waitpid(pid, &status, 0);
 	}
-	return ((status & 255) | (status >> 8));
+	return (ft_status_handling(status));
 }

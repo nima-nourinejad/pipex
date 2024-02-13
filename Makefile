@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+         #
+#    By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/02/10 18:32:35 by nnourine         ###   ########.fr        #
+#    Updated: 2024/02/13 10:46:12 by nima             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC = 	ft_split_pipex.c \
 		root.c \
 		helper.c \
 		helper2.c \
+		helper3.c \
 		args.c \
 		rule.c \
 		best_rule.c \

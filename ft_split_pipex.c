@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_pipex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:10:21 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/01 12:56:00 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/13 11:01:30 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ char	**ft_split_pipex(char const *s, char c)
 		m[0] = 0;
 		return (m);
 	}
+	if (ft_all_delimiter(s, c))
+		return (ft_split_all_delimiter(s));
 	m = ft_create (s, c, 0, 0);
 	return (m);
 }

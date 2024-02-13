@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 17:26:53 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 13:10:48 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <string.h>
 # include <fcntl.h>
 # include <errno.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 
 typedef struct s_rule
 {
@@ -85,5 +87,9 @@ void	ft_free_rule_fd(t_rule *r, int fd);
 int		ft_check_f(char *join, char **path);
 int		ft_check_x(char *join, char **path);
 char	*ft_check_add(char *join, char **path);
+int		ft_all_delimiter(char const *s, char c);
+char	**ft_split_all_delimiter(char const *s);
+void	ft_free_ior1(t_ior ior);
+void	ft_free_ior2(t_ior ior);
 
 #endif // PIPEX_H

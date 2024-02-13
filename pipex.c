@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:48:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/11 15:39:33 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 13:48:42 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_number(int argc)
 	if (argc != 5)
 	{
 		dup2(2, 1);
-		ft_printf("pipex: the wrong number of arguments");
+		ft_printf("pipex: the wrong number of arguments\n");
 		exit (1);
 	}
 }
@@ -53,6 +53,7 @@ static t_ior	ft_arg_handling(int argc, char **argv, char **envp)
 	{
 		close ((ior.io).i);
 		close ((ior.io).fd_null);
+		unlink("null");
 		exit (1);
 	}
 	ior.r1 = ft_final_rule(argv[2], envp);

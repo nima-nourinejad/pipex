@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rule.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:06:22 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/12 11:14:07 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:26:49 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_rule	*ft_rule2_maker(char *str)
 	n = malloc(sizeof(t_rule));
 	if (!n)
 		return (0);
-	args = ft_args2_maker(str);
+	args = ft_args0_maker(str);
 	if (!args)
 		return (0);
 	(*n).args = args;
@@ -98,7 +98,7 @@ t_rule	*ft_rule3_maker(char *str)
 	n = malloc(sizeof(t_rule));
 	if (!n)
 		return (0);
-	args = ft_args3_maker(str);
+	args = ft_args1_maker(str);
 	if (!args)
 		return (0);
 	(*n).args = args;
