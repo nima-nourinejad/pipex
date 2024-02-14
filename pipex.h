@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 15:10:27 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 15:12:56 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ t_ior	*ft_free_exit_ior(t_ior ior, int ex);
 void	ft_close_fd(int in, int out);
 void	ft_free_doule_pointer(char **m);
 void	ft_free_ior(t_ior ior);
-void	ft_free_ior_unlink(t_ior ior);
 void	ft_free_rule_fd(t_rule *r, int fd);
 int		ft_check_f(char *join, char **path);
 int		ft_check_x(char *join, char **path);
