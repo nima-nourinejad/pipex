@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 13:29:16 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 15:07:59 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	ft_free_rule_fd(t_rule *r, int fd);
 int		ft_check_f(char *join, char **path);
 int		ft_check_x(char *join, char **path);
 char	*ft_check_add(char *join, char **path);
-int		ft_all_delimiter(char const *s, char c);
 char	**ft_split_all_delimiter(char const *s);
 void	ft_free_ior1(t_ior ior);
 void	ft_free_ior2(t_ior ior);

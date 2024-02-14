@@ -6,22 +6,11 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:44:57 by nima              #+#    #+#             */
-/*   Updated: 2024/02/13 19:41:53 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 15:07:38 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-int	ft_all_delimiter(char const *s, char c)
-{
-	while (*s)
-	{
-		if (*s != c)
-			return (0);
-		s++;
-	}
-	return (1);
-}
 
 char	**ft_split_all_delimiter(char const *s)
 {
