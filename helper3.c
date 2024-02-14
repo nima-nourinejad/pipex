@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:44:57 by nima              #+#    #+#             */
-/*   Updated: 2024/02/14 15:07:38 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 15:10:41 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,4 @@ char	**ft_split_all_delimiter(char const *s)
 		return (0);
 	}
 	return (m);
-}
-
-void	ft_free_ior1(t_ior ior)
-{
-	if ((ior.io).i != -1)
-		close((ior.io).i);
-	if (ior.r1)
-		ft_rule_remover(ior.r1);
-}
-
-void	ft_free_ior2(t_ior ior)
-{
-	if ((ior.io).o != -1)
-		close((ior.io).o);
-	if (ior.r2)
-		ft_rule_remover(ior.r2);
 }
