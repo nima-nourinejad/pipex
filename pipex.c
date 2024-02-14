@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:48:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 20:15:47 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 13:59:15 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ static t_ior	ft_arg_handling(int argc, char **argv, char **envp)
 	ior.r2 = ft_final_rule(argv[3], envp);
 	if (ior.r2 == 0)
 		ft_close_free_ior(ior.r1, (ior.io).i, (ior.io).o);
+	if ((ior.io).i != -1)
+		ft_rule_check(ior.r1);
+	if ((ior.io).o != -1)
+		ft_rule_check(ior.r2);
 	return (ior);
 }
 

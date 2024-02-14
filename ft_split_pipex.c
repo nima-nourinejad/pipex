@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:10:21 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 16:56:15 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 13:15:38 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ char	**ft_split_pipex(char const *s, char c)
 {
 	char	**m;
 
-	if (s == 0 || *s == '\0')
+	if (s == 0)
 	{
 		m = malloc(1 * sizeof (char *));
 		if (m == 0)
@@ -125,7 +125,7 @@ char	**ft_split_pipex(char const *s, char c)
 		m[0] = 0;
 		return (m);
 	}
-	if (ft_all_delimiter(s, c))
+	if (s[0] == 32 || *s == '\0')
 		return (ft_split_all_delimiter(s));
 	m = ft_create (s, c, 0, 0);
 	return (m);

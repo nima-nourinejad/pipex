@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:29:43 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 11:10:28 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 13:58:11 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static int	ft_first_check(t_ior ior)
 		ft_free_ior(ior);
 		return (1);
 	}
-	if ((*(ior.r2)).cmd[0])
-		ft_rule_check(ior.r2);
 	if ((*(ior.r2)).f == 1 && (*(ior.r2)).x == 0)
 	{
 		ft_free_ior(ior);

@@ -6,13 +6,13 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:06:22 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 17:08:36 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 13:50:44 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-t_rule	*ft_rule0_maker(char *str, char **envp)
+t_rule	*ft_rule0_maker(const char *str, char **envp)
 {
 	char	**args;
 	t_rule	*n;
@@ -20,7 +20,7 @@ t_rule	*ft_rule0_maker(char *str, char **envp)
 	n = malloc(sizeof(t_rule));
 	if (!n)
 		return (0);
-	args = ft_args0_maker(str);
+	args = ft_args0_maker((char *)str);
 	if (!args)
 		return (0);
 	(*n).args = args;
@@ -36,12 +36,12 @@ t_rule	*ft_rule0_maker(char *str, char **envp)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = str;
+		(*n).cmd = (char *)str;
 	}
 	return (n);
 }
 
-t_rule	*ft_rule1_maker(char *str, char **envp)
+t_rule	*ft_rule1_maker(const char *str, char **envp)
 {
 	char	**args;
 	t_rule	*n;
@@ -49,7 +49,7 @@ t_rule	*ft_rule1_maker(char *str, char **envp)
 	n = malloc(sizeof(t_rule));
 	if (!n)
 		return (0);
-	args = ft_args1_maker(str);
+	args = ft_args1_maker((char *)str);
 	if (!args)
 		return (0);
 	(*n).args = args;
@@ -65,12 +65,12 @@ t_rule	*ft_rule1_maker(char *str, char **envp)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = str;
+		(*n).cmd = (char *)str;
 	}
 	return (n);
 }
 
-t_rule	*ft_rule2_maker(char *str)
+t_rule	*ft_rule2_maker(const char *str)
 {
 	char	**args;
 	t_rule	*n;
@@ -78,7 +78,7 @@ t_rule	*ft_rule2_maker(char *str)
 	n = malloc(sizeof(t_rule));
 	if (!n)
 		return (0);
-	args = ft_args0_maker(str);
+	args = ft_args0_maker((char *)str);
 	if (!args)
 		return (0);
 	(*n).args = args;
@@ -94,12 +94,12 @@ t_rule	*ft_rule2_maker(char *str)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = str;
+		(*n).cmd = (char *)str;
 	}
 	return (n);
 }
 
-t_rule	*ft_rule3_maker(char *str)
+t_rule	*ft_rule3_maker(const char *str)
 {
 	char	**args;
 	t_rule	*n;
@@ -107,7 +107,7 @@ t_rule	*ft_rule3_maker(char *str)
 	n = malloc(sizeof(t_rule));
 	if (!n)
 		return (0);
-	args = ft_args1_maker(str);
+	args = ft_args1_maker((char *)str);
 	if (!args)
 		return (0);
 	(*n).args = args;
@@ -123,7 +123,7 @@ t_rule	*ft_rule3_maker(char *str)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = str;
+		(*n).cmd = (char *)str;
 	}
 	return (n);
 }

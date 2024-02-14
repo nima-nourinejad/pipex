@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 19:37:24 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 13:29:16 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ char	**ft_args0_maker(char *str);
 char	**ft_args1_maker(char *str);
 char	**ft_args2_maker(char *str);
 char	**ft_args3_maker(char *str);
-t_rule	*ft_rule0_maker(char *str, char **envp);
-t_rule	*ft_rule1_maker(char *str, char **envp);
-t_rule	*ft_rule2_maker(char *str);
-t_rule	*ft_rule3_maker(char *str);
+t_rule	*ft_rule0_maker(const char *str, char **envp);
+t_rule	*ft_rule1_maker(const char *str, char **envp);
+t_rule	*ft_rule2_maker(const char *str);
+t_rule	*ft_rule3_maker(const char *str);
 void	ft_rule_remover(t_rule *rule);
 int		ft_find_max4(int x1, int x2, int x3, int x4);
 t_rule	*ft_final_rule(char *str, char **envp);
