@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 09:06:22 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 13:50:44 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 16:25:03 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_rule	*ft_rule0_maker(const char *str, char **envp)
 	args = ft_args0_maker((char *)str);
 	if (!args)
 		return (0);
+	(*n).first = ft_first_part((char *)str);
 	(*n).args = args;
 	(*n).f = ft_f_path(args[0], envp);
 	(*n).x = ft_x_path(args[0], envp);
@@ -36,7 +37,7 @@ t_rule	*ft_rule0_maker(const char *str, char **envp)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = (char *)str;
+		(*n).cmd = (*n).first;
 	}
 	return (n);
 }
@@ -52,6 +53,7 @@ t_rule	*ft_rule1_maker(const char *str, char **envp)
 	args = ft_args1_maker((char *)str);
 	if (!args)
 		return (0);
+	(*n).first = ft_first_part((char *)str);
 	(*n).args = args;
 	(*n).f = ft_f_path(args[0], envp);
 	(*n).x = ft_x_path(args[0], envp);
@@ -65,7 +67,7 @@ t_rule	*ft_rule1_maker(const char *str, char **envp)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = (char *)str;
+		(*n).cmd = (*n).first;
 	}
 	return (n);
 }
@@ -81,6 +83,7 @@ t_rule	*ft_rule2_maker(const char *str)
 	args = ft_args0_maker((char *)str);
 	if (!args)
 		return (0);
+	(*n).first = ft_first_part((char *)str);
 	(*n).args = args;
 	(*n).f = ft_f_root(args[0]);
 	(*n).x = ft_x_root(args[0]);
@@ -94,7 +97,7 @@ t_rule	*ft_rule2_maker(const char *str)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = (char *)str;
+		(*n).cmd = (*n).first;
 	}
 	return (n);
 }
@@ -110,6 +113,7 @@ t_rule	*ft_rule3_maker(const char *str)
 	args = ft_args1_maker((char *)str);
 	if (!args)
 		return (0);
+	(*n).first = ft_first_part((char *)str);
 	(*n).args = args;
 	(*n).f = ft_f_root(args[0]);
 	(*n).x = ft_x_root(args[0]);
@@ -123,7 +127,7 @@ t_rule	*ft_rule3_maker(const char *str)
 	else
 	{
 		(*n).add = 0;
-		(*n).cmd = (char *)str;
+		(*n).cmd = (*n).first;
 	}
 	return (n);
 }
@@ -145,6 +149,8 @@ void	ft_rule_remover(t_rule *rule)
 		free(args);
 		if ((*rule).add)
 			free((*rule).add);
+		if ((*rule).first)
+			free((*rule).first);
 		free(rule);
 	}
 }

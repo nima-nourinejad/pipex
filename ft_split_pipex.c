@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:10:21 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 13:15:38 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/14 23:57:51 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ static int	ft_count(char const *s, char c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if ((s[i] != c) && (i == 0 || s[i - 1] == c)
+		if (i == 0)
+			count++;
+		else if ((s[i] != c) && (s[i - 1] == c)
 			&& triger1 == 0 && triger2 == 0)
 			count++;
 		triger1 = ft_triger_maker_sp(triger1, s[i], s[i - 1], 34);
@@ -40,7 +42,13 @@ static int	ft_len(char const *s, char c)
 	int	j;
 
 	j = 0;
-	if ((*s != 34 && *s != 39))
+	if (*s == c)
+	{
+		while (!((s[j] != c)
+				&& (s[j + 1] == '\0' || s[j + 1] == c)))
+			j++;
+	}
+	else if ((*s != 34 && *s != 39))
 	{
 		while (!((s[j] != c && s[j] != '\\')
 				&& (s[j + 1] == '\0' || s[j + 1] == c)))
@@ -50,14 +58,14 @@ static int	ft_len(char const *s, char c)
 	{
 		if (*s == 34)
 		{
-			j++;
-			while (s[j] != 34 || ((s[j] == 34) && s[j - 1] == '\\'))
+			while ((s[j + 1] != 34 || (s[j] == '\\' || s[j + 1] == 34))
+				&& s[j + 1] != '\0')
 				j++;
 		}
-		if (*s == 39)
+		else if (*s == 39)
 		{
-			j++;
-			while ((s[j] != 39) || ((s[j] == 39) && s[j - 1] == '\\'))
+			while ((s[j + 1] != 39 || (s[j] == '\\' || s[j + 1] == 39))
+				&& s[j + 1] != '\0')
 				j++;
 		}
 	}
@@ -98,7 +106,7 @@ static char	**ft_create(char const *s, char c, int i, int j)
 	triger2 = 0;
 	while (s[i] != '\0')
 	{
-		if ((s[i] != c) && (i == 0 || (i > 0 && s[i - 1] == c))
+		if ((i == 0 || (i > 0 && s[i - 1] == c && (s[i] != c)))
 			&& triger1 == 0 && triger2 == 0)
 		{
 			m[j] = ft_dup(s + i, c);
@@ -125,7 +133,7 @@ char	**ft_split_pipex(char const *s, char c)
 		m[0] = 0;
 		return (m);
 	}
-	if (s[0] == 32 || *s == '\0')
+	if (*s == '\0')
 		return (ft_split_all_delimiter(s));
 	m = ft_create (s, c, 0, 0);
 	return (m);

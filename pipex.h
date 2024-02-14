@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 15:12:56 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/15 00:16:11 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_rule
 {
 	char	*cmd;
+	char	*first;
 	char	*add;
 	char	**args;
 	int		f;
@@ -86,5 +87,6 @@ int		ft_check_f(char *join, char **path);
 int		ft_check_x(char *join, char **path);
 char	*ft_check_add(char *join, char **path);
 char	**ft_split_all_delimiter(char const *s);
+char	*ft_first_part(char const *s);
 
 #endif // PIPEX_H

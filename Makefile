@@ -6,7 +6,7 @@
 #    By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 15:48:51 by nnourine          #+#    #+#              #
-#    Updated: 2024/02/13 10:46:12 by nima             ###   ########.fr        #
+#    Updated: 2024/02/15 00:09:13 by nima             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = 	ft_split_pipex.c \
 		exec_rule2.c \
 		exec_rule3.c \
 		check_path.c \
+		first_part.c \
 		pipex.c
 
 OBJ = $(SRC:.c=.o)
