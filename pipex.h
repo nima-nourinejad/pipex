@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 13:10:48 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 19:37:24 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_io
 {
 	int	i;
 	int	o;
-	int	fd_null;
 }	t_io;
 
 typedef struct s_ior
@@ -79,7 +78,7 @@ int		ft_exec_rule3(int i, int o, t_ior ior, char **envp);
 char	**ft_free_split(char ***m, int j);
 int		ft_triger_maker_sp(int triger, char c, char before_c, char divider);
 t_ior	*ft_free_exit_ior(t_ior ior, int ex);
-void	ft_close_fd(int in, int out, int fd_null);
+void	ft_close_fd(int in, int out);
 void	ft_free_doule_pointer(char **m);
 void	ft_free_ior(t_ior ior);
 void	ft_free_ior_unlink(t_ior ior);

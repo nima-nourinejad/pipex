@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:48:46 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/13 17:06:46 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 20:15:47 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,10 @@ static void	ft_number(int argc)
 	}
 }
 
-static t_ior	*ft_close_free_ior(t_rule *r, int in, int out, int fd_null)
+static t_ior	*ft_close_free_ior(t_rule *r, int in, int out)
 {
-	if (in != fd_null)
-	{
-		if (in != -1)
-			close(in);
-		if (fd_null != -1)
-			close(out);
-	}
-	else
-	{
-		if (fd_null != -1)
-			close(out);
-	}
+	if (in != -1)
+		close(in);
 	if (out != -1)
 		close(out);
 	if (r)
@@ -49,27 +39,12 @@ static t_ior	ft_arg_handling(int argc, char **argv, char **envp)
 
 	ft_number(argc);
 	ior.io = ft_io(argv[1], argv[4]);
-	if ((ior.io).o == -1)
-	{
-		close ((ior.io).i);
-		close ((ior.io).fd_null);
-		unlink("null");
-		exit (1);
-	}
 	ior.r1 = ft_final_rule(argv[2], envp);
 	if (ior.r1 == 0)
-		ft_close_free_ior(0, (ior.io).i, (ior.io).o, (ior.io).fd_null);
-	if (argv[2][0])
-		ft_rule_check(ior.r1);
+		ft_close_free_ior(0, (ior.io).i, (ior.io).o);
 	ior.r2 = ft_final_rule(argv[3], envp);
 	if (ior.r2 == 0)
-		ft_close_free_ior(ior.r1, (ior.io).i, (ior.io).o, (ior.io).fd_null);
-	if (argv[3][0])
-		ft_rule_check(ior.r2);
-	if ((*(ior.r2)).f == 1 && (*(ior.r2)).x == 0)
-		ft_free_exit_ior(ior, 126);
-	if ((*(ior.r2)).f == 0)
-		ft_free_exit_ior(ior, 127);
+		ft_close_free_ior(ior.r1, (ior.io).i, (ior.io).o);
 	return (ior);
 }
 

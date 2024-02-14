@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:44:57 by nima              #+#    #+#             */
-/*   Updated: 2024/02/13 13:09:23 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/13 19:41:53 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,10 @@ char	**ft_split_all_delimiter(char const *s)
 
 void	ft_free_ior1(t_ior ior)
 {
-	if ((ior.io).i != (ior.io).fd_null)
-	{
-		if ((ior.io).i != -1)
-			close((ior.io).i);
-		if ((ior.io).fd_null != -1)
-			close((ior.io).fd_null);
-	}
-	else
-	{
-		if ((ior.io).fd_null != -1)
-			close((ior.io).fd_null);
-	}
+	if ((ior.io).i != -1)
+		close((ior.io).i);
 	if (ior.r1)
 		ft_rule_remover(ior.r1);
-	unlink("null");
 }
 
 void	ft_free_ior2(t_ior ior)

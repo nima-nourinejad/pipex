@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_io.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 10:38:50 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/12 11:22:55 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:32:14 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,12 @@ t_io	ft_io(char *i, char *o)
 {
 	t_io	r;
 
-	r.fd_null = open("null", O_RDONLY | O_CREAT, 0600);
-	if (r.fd_null == -1)
-		exit (-5);
 	i = ft_i_maker(i);
 	r.i = open(i, O_RDONLY);
 	if (r.i == -1)
 	{
 		dup2(2, 1);
 		ft_printf("pipex: %s: %s\n", i, strerror(errno));
-		r.i = r.fd_null;
 	}
 	r.o = open(o, O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	if (r.o == -1)
