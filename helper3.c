@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:44:57 by nima              #+#    #+#             */
-/*   Updated: 2024/02/15 10:58:07 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/15 11:31:56 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,15 @@ int	ft_len_helper(const char	*s)
 			j++;
 	}
 	return (j);
+}
+
+t_rule	*ft_broken_rule_cleaner(t_rule *n, char **args, char *start)
+{
+	if (n)
+		free (n);
+	if (args)
+		ft_free_doule_pointer (args);
+	if (start)
+		free (start);
+	return (0);
 }

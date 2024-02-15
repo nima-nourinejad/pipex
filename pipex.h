@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/15 11:01:09 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/15 11:32:08 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ char	*ft_first_part(char const *s);
 char	*ft_full_add(char *add, int x);
 char	*ft_full_cmd(char *first, char **args, int x);
 int		ft_len_helper(const char	*s);
+t_rule	*ft_broken_rule_cleaner(t_rule *n, char **args, char *start);
 
 #endif // PIPEX_H
