@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:36:16 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/15 00:16:11 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/15 11:01:09 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,8 @@ int		ft_check_x(char *join, char **path);
 char	*ft_check_add(char *join, char **path);
 char	**ft_split_all_delimiter(char const *s);
 char	*ft_first_part(char const *s);
+char	*ft_full_add(char *add, int x);
+char	*ft_full_cmd(char *first, char **args, int x);
+int		ft_len_helper(const char	*s);
 
 #endif // PIPEX_H
