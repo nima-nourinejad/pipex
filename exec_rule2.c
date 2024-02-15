@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:29:43 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 13:56:01 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/15 20:28:56 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	ft_exec_rule2(int i, int o, t_ior ior, char **envp)
 	}
 	else
 	{
-		close(i);
 		close(o);
-		ft_rule_remover(ior.r1);
+		ft_free_rule_fd(ior.r1, (ior.io).i);
 	}
 }

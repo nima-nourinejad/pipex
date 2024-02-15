@@ -6,7 +6,7 @@
 /*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:44:57 by nima              #+#    #+#             */
-/*   Updated: 2024/02/15 11:31:56 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/15 20:04:20 by nima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ char	*ft_full_add(char *add, int x)
 	if (x)
 		return (add);
 	else
+	{
+		free(add);
 		return (0);
+	}
 }
 
 char	*ft_full_cmd(char *first, char **args, int x)
