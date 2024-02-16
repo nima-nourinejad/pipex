@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_rule3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nima <nnourine@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:29:43 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/14 13:58:11 by nima             ###   ########.fr       */
+/*   Updated: 2024/02/16 11:10:14 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_exec_rule3(int i, int o, t_ior ior, char **envp)
 	{
 		ft_dup_close(i, o);
 		execve((*(ior.r2)).add, (*(ior.r2)).args, envp);
-		ft_free_rule_fd(ior.r2, (ior.io).o);
+		ft_rule_remover(ior.r2);
 	}
 	else
 	{
