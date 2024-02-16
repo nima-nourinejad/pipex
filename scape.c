@@ -6,7 +6,7 @@
 /*   By: nnourine <nnourine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:56:40 by nnourine          #+#    #+#             */
-/*   Updated: 2024/02/10 16:43:44 by nnourine         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:21:07 by nnourine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,34 +37,16 @@ static t_scape	ft_remover(t_scape tool)
 	return (tool);
 }
 
-static int	ft_check_after(char *str)
-{
-	if (*(str + 1) == '\"' || *(str + 1) == '\'' || *(str + 1) == '\\')
-		return (1);
-	else
-		return (0);
-}
-
 t_scape	ft_remover_one(t_scape tool)
 {
-	int		len;
 	char	*temp;
 
-	if (ft_check_after(ft_strchr(tool.index, '\\')))
-	{
-		temp = tool.without;
-		tool.index = ft_strchr(tool.index, '\\');
-		tool = ft_remover(tool);
-		free(temp);
-		if (!tool.without)
-			exit (-6);
-	}
-	else
-	{
-		len = (int) ft_strlen(tool.without);
-		if ((tool.index + 2) < (tool.without + len))
-			tool.index = tool.index + 2;
-	}
+	temp = tool.without;
+	tool.index = ft_strchr(tool.index, '\\');
+	tool = ft_remover(tool);
+	free(temp);
+	if (!tool.without)
+		exit (-6);
 	return (tool);
 }
 
