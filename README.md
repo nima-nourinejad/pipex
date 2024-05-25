@@ -17,3 +17,4 @@ Pipex is a Unix mechanism implementation project that explores the use of pipes 
 - **C Programming Proficiency**: Successfully completing Pipex demonstrates proficiency in C programming, including file I/O operations, process management, and error handling.
 - **Problem-Solving Skills**: Pipex challenges developers to solve complex problems related to inter-process communication, file redirection, and error management, fostering problem-solving skills crucial for software development.
 - **Adherence to Coding Standards**: The project adheres to coding standards and best practices, ensuring clean, maintainable code that meets project requirements.
+
